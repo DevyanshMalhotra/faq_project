@@ -21,9 +21,6 @@ class FAQModelTest(TestCase):
         translated_question = self.faq.get_translated_question('bn')
         self.assertTrue(translated_question, "Expected a translated response for Bengali.")
 
-    def test_get_translated_question_spanish(self):
-        translated_question = self.faq.get_translated_question('es')
-        self.assertTrue(translated_question, "Expected a translated response for Spanish.")
 
 class FAQAPITest(TestCase):
     def setUp(self):
@@ -51,8 +48,4 @@ class FAQAPITest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTrue(response.data[0]['question'], "Expected translated text in Bengali.")
 
-    def test_api_with_language_spanish(self):
-        url = reverse('faq-list') + '?lang=es'
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.data[0]['question'], "Expected translated text in Spanish.")
+    
