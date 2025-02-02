@@ -13,11 +13,17 @@ class FAQModelTest(TestCase):
     def test_get_translated_question_default(self):
         self.assertEqual(self.faq.get_translated_question('en'), "What is Django?")
 
-    def test_get_translated_question_auto_translated(self):
-        self.assertTrue(self.faq.get_translated_question('hi'))
+    def test_get_translated_question_hindi(self):
+        translated_question = self.faq.get_translated_question('hi')
+        self.assertTrue(translated_question, "Expected a translated response for Hindi.")
 
-    def test_get_translated_question_auto_translated(self):
-        self.assertTrue(self.faq.get_translated_question('bn'))
+    def test_get_translated_question_bengali(self):
+        translated_question = self.faq.get_translated_question('bn')
+        self.assertTrue(translated_question, "Expected a translated response for Bengali.")
+
+    def test_get_translated_question_spanish(self):
+        translated_question = self.faq.get_translated_question('es')
+        self.assertTrue(translated_question, "Expected a translated response for Spanish.")
 
 class FAQAPITest(TestCase):
     def setUp(self):
@@ -33,16 +39,20 @@ class FAQAPITest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data[0]['question'], "What is Django?")
 
-    def test_api_with_language_param(self):
+    def test_api_with_language_hindi(self):
         url = reverse('faq-list') + '?lang=hi'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.data[0]['question'])
+        self.assertTrue(response.data[0]['question'], "Expected translated text in Hindi.")
 
-    def test_api_with_language_param(self):
+    def test_api_with_language_bengali(self):
         url = reverse('faq-list') + '?lang=bn'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.data[0]['question'])
+        self.assertTrue(response.data[0]['question'], "Expected translated text in Bengali.")
 
-    
+    def test_api_with_language_spanish(self):
+        url = reverse('faq-list') + '?lang=es'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.data[0]['question'], "Expected translated text in Spanish.")
