@@ -35,6 +35,10 @@ Bengali:
 ```bash
 curl http://localhost:8000/api/faqs/?lang=bn
 ```
+Admin Panel:
+```bash
+curl http://localhost:8000/admin
+```
 
 ## Preview
 
