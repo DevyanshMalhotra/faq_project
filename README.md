@@ -22,6 +22,20 @@ This project is a backend application for managing FAQs in multiple languages. I
 - **Unit Tests:** Basic tests covering model translation methods and API responses.
 - **Docker Support:** Easily run the application using Docker & docker-compose.
 
+## API Usage
+English (default):
+```bash
+curl http://localhost:8000/api/faqs/
+```
+Hindi:
+```bash
+curl http://localhost:8000/api/faqs/?lang=hi
+```
+Bengali:
+```bash
+curl http://localhost:8000/api/faqs/?lang=bn
+```
+
 ### Installation
 
 ```bash
