@@ -4,7 +4,7 @@
 ### Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/DevyanshMalhotra/faq_project.git
 cd faq_project
 python -m venv venv
 source venv/bin/activate        # On Windows: venv\Scripts\activate
@@ -15,3 +15,9 @@ python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 
+### Docker-Commands
+
+```bash
+docker-compose up --build
+docker-compose exec web python manage.py migrate
+docker-compose exec web python manage.py createsuperuser
