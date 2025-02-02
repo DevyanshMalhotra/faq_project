@@ -1,4 +1,3 @@
-# bharatfd-assessment
 ## Multilingual FAQ Django Project
 
 This project is a backend application for managing FAQs in multiple languages. It includes:
