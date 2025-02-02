@@ -44,13 +44,10 @@ Here are some previews of the project:
 ![Image 1](images/img1.png)
 
 ### Image 2
-![Image 2](images/img2.png)
+![Image 2](images/img3.png)
 
 ### Image 3
-![Image 3](images/img3.png)
-
-### Image 4
-![Image 4](images/img4.png)
+![Image 3](images/img4.png)
 
 ### Installation
 
